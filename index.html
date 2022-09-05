@@ -1,0 +1,33 @@
+---
+# Feel free to add content and custom Front Matter to this file
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm mb-4 text-center">
+      <strong class="text-orange">🎉 {{ site.data.contributions.devs | size }} developers who contributed to this open source project for the first time 🎉</strong>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    {% for dev in site.data.contributions.devs %}
+      <div class="col-sm-2 mb-4">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="{{ dev.avatar }}"  onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name={{ dev.name }}'" alt=""></a>
+          <div class="card-body">
+            <h5 class="card-title">
+              <p class="developer-name">{{ dev.name }}</p>
+            </h5>
+            <p class="card-text">
+                <a href="{{ dev.github_url }}"><i class="fa fa-github fa-2x links-hover"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
